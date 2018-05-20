@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="110" id="vTS-mf-qpf" customClass="QuestionCell" customModule="Questions" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="378" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vTS-mf-qpf" id="6RQ-zx-lWp">
+                <rect key="frame" x="0.0" y="0.0" width="378" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+                        <rect key="frame" x="0.0" y="0.0" width="378" height="109"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ofE-4u-dcW">
+                                <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ybf-iK-cxB"/>
+                                    <constraint firstAttribute="height" constant="60" id="d3Z-QR-Wpp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some random question about stuff in technology?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q9w-jp-oYI">
+                                <rect key="frame" x="86" y="10" width="276" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIO-1x-PT8">
+                                <rect key="frame" x="302" y="84.5" width="60" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="xaK-Da-Fjl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="J0k-xS-MMd">
+                                <rect key="frame" x="274" y="82" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="d6u-Oo-EwE"/>
+                                    <constraint firstAttribute="height" constant="20" id="rns-nE-Qa5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer: Random tech" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6kx-cL-3vi">
+                                <rect key="frame" x="86" y="84" width="180" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="q9w-jp-oYI" secondAttribute="trailing" constant="16" id="5aV-SD-5vU"/>
+                            <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VIO-1x-PT8" secondAttribute="bottom" constant="10" id="BwK-pm-gVd"/>
+                            <constraint firstItem="q9w-jp-oYI" firstAttribute="leading" secondItem="ofE-4u-dcW" secondAttribute="trailing" constant="16" id="D4t-Li-DiO"/>
+                            <constraint firstItem="6kx-cL-3vi" firstAttribute="leading" secondItem="q9w-jp-oYI" secondAttribute="leading" id="M6W-kf-7rW"/>
+                            <constraint firstItem="ofE-4u-dcW" firstAttribute="top" secondItem="q9w-jp-oYI" secondAttribute="top" id="NNO-rp-MiN"/>
+                            <constraint firstItem="ofE-4u-dcW" firstAttribute="bottom" secondItem="q9w-jp-oYI" secondAttribute="bottom" id="eB3-yM-Z70"/>
+                            <constraint firstItem="ofE-4u-dcW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="gEF-kB-hNc"/>
+                            <constraint firstItem="J0k-xS-MMd" firstAttribute="leading" secondItem="6kx-cL-3vi" secondAttribute="trailing" constant="8" id="hbp-6X-U1y"/>
+                            <constraint firstItem="VIO-1x-PT8" firstAttribute="leading" secondItem="J0k-xS-MMd" secondAttribute="trailing" constant="8" symbolic="YES" id="jU7-tP-1gT"/>
+                            <constraint firstItem="VIO-1x-PT8" firstAttribute="centerY" secondItem="J0k-xS-MMd" secondAttribute="centerY" id="ljf-Us-y12"/>
+                            <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VIO-1x-PT8" secondAttribute="trailing" constant="16" id="nSY-SV-CGs"/>
+                            <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6kx-cL-3vi" secondAttribute="bottom" constant="10" id="nwb-4d-cjk"/>
+                            <constraint firstItem="ofE-4u-dcW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="xdR-Wx-6cR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="iN0-l3-epB" firstAttribute="leading" secondItem="6RQ-zx-lWp" secondAttribute="leading" id="BcR-2F-IGd"/>
+                    <constraint firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="PD3-IH-0HR"/>
+                    <constraint firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="h7Q-ru-CdA"/>
+                    <constraint firstItem="iN0-l3-epB" firstAttribute="top" secondItem="6RQ-zx-lWp" secondAttribute="top" id="ri5-76-U7e"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="counterImageView" destination="J0k-xS-MMd" id="5MZ-IO-mI0"/>
+                <outlet property="counterLabel" destination="VIO-1x-PT8" id="9y6-Nz-sth"/>
+                <outlet property="questionImageView" destination="ofE-4u-dcW" id="BaB-28-kZC"/>
+                <outlet property="questionLabel" destination="q9w-jp-oYI" id="gCG-im-UrM"/>
+                <outlet property="topAnswerLabel" destination="6kx-cL-3vi" id="EvV-O2-qIl"/>
+            </connections>
+            <point key="canvasLocation" x="153" y="154"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_star" width="30" height="30"/>
+    </resources>
+</document>

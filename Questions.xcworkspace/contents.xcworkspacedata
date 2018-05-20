@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "documentation">
+   </Group>
+   <Group
+      location = "container:scripts"
+      name = "scripts">
+      <FileRef
+         location = "group:display.script">
+      </FileRef>
+      <FileRef
+         location = "group:resolveDependencies.sh">
+      </FileRef>
+      <FileRef
+         location = "group:testEnvironment.sh">
+      </FileRef>
+      <FileRef
+         location = "group:validate.sh">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "dependencies">
+      <FileRef
+         location = "group:swiftgen.yml">
+      </FileRef>
+      <FileRef
+         location = "group:Cartfile">
+      </FileRef>
+      <FileRef
+         location = "group:Romefile">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Questions.xcodeproj">
+   </FileRef>
+</Workspace>

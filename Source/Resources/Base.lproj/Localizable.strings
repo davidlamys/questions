@@ -1,0 +1,6 @@
+"checking_connection" = "Checking connection";
+"unexepected_error" = "Strange errors happens ¯\\_(ツ)_/¯";
+"connection_failed" = "Connection failed";
+"retry" = "Retry";
+"no_answear" = "You didn't responde";
+"your_answear" = "Your answer: %@";

@@ -1,0 +1,23 @@
+disabled_rules: # rule identifiers to exclude from running
+    - trailing_whitespace
+
+opt_in_rules: # some rules are only opt-in
+
+    - attributes
+    - closure_spacing
+    - fatal_error_message
+    - file_header
+    - first_where
+    - nimble_operator
+    - object_literal
+    - operator_usage_whitespace
+    - private_outlet
+    - redundant_nil_coalescing
+    - switch_case_on_newline 
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+    - Carthage
+    - Pods
+    - Build
+    - .build
+    - Source/Core/Result

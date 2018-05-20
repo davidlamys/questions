@@ -1,0 +1,10 @@
+input_dir: Source/Resources
+output_dir: Source/Generated/
+strings:
+    paths: Base.lproj/Localizable.strings
+    templateName: structured-swift4
+    output: L10n.swift
+storyboards:
+    paths: Base.lproj/Main.storyboard
+    templateName: swift4
+    output: MainStoryboard.swift

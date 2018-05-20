@@ -1,0 +1,7 @@
+github "Swinject/Swinject" 
+github "Swinject/SwinjectStoryboard" 
+github "SwiftyJSON/SwiftyJSON"
+github "Alamofire/Alamofire"
+github "Alamofire/AlamofireImage"
+github "ReactiveX/RxSwift"
+github "emaloney/CleanroomLogger"
