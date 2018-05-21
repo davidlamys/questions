@@ -12,7 +12,6 @@
 		EB2A462C20B06A03003CC3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2A462A20B06A03003CC3BF /* Main.storyboard */; };
 		EB2A462E20B06A04003CC3BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2A462D20B06A04003CC3BF /* Assets.xcassets */; };
 		EB2A463120B06A04003CC3BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2A462F20B06A04003CC3BF /* LaunchScreen.storyboard */; };
-		EB2A465020B080F5003CC3BF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464A20B080F5003CC3BF /* RxSwift.framework */; };
 		EB2A465120B080F5003CC3BF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464B20B080F5003CC3BF /* SwiftyJSON.framework */; };
 		EB2A465220B080F5003CC3BF /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464C20B080F5003CC3BF /* SwinjectStoryboard.framework */; };
 		EB2A465320B080F5003CC3BF /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464D20B080F5003CC3BF /* Swinject.framework */; };
@@ -22,8 +21,6 @@
 		EB2A465720B08132003CC3BF /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464E20B080F5003CC3BF /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB2A465820B08132003CC3BF /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464F20B080F5003CC3BF /* CleanroomLogger.framework */; };
 		EB2A465920B08132003CC3BF /* CleanroomLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464F20B080F5003CC3BF /* CleanroomLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EB2A465A20B08132003CC3BF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464A20B080F5003CC3BF /* RxSwift.framework */; };
-		EB2A465B20B08132003CC3BF /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464A20B080F5003CC3BF /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB2A465C20B08132003CC3BF /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464B20B080F5003CC3BF /* SwiftyJSON.framework */; };
 		EB2A465D20B08132003CC3BF /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464B20B080F5003CC3BF /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB2A465E20B08132003CC3BF /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2A464D20B080F5003CC3BF /* Swinject.framework */; };
@@ -40,8 +37,8 @@
 		EB7438CF20B245EE00499464 /* AlamofireSwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7438CD20B241CA00499464 /* AlamofireSwiftyJSON.framework */; };
 		EB7438D020B245EE00499464 /* AlamofireSwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB7438CD20B241CA00499464 /* AlamofireSwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB7438D220B2482C00499464 /* QuestionDummyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7438D120B2482C00499464 /* QuestionDummyProvider.swift */; };
-		EB7438D820B249F100499464 /* ChoiceMV+SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7438D720B249F100499464 /* ChoiceMV+SwiftyJSON.swift */; };
-		EB7438DC20B24C5300499464 /* QuestionMV+SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7438DB20B24C5300499464 /* QuestionMV+SwiftyJSON.swift */; };
+		EB7438D820B249F100499464 /* ChoiceMV+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7438D720B249F100499464 /* ChoiceMV+API.swift */; };
+		EB7438DC20B24C5300499464 /* QuestionMV+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7438DB20B24C5300499464 /* QuestionMV+API.swift */; };
 		EBA529D020B090F600FDC145 /* HealthStatusProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA529CF20B090F600FDC145 /* HealthStatusProvider.swift */; };
 		EBA529D220B0AF7200FDC145 /* SwiftInj+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA529D120B0AF7200FDC145 /* SwiftInj+App.swift */; };
 		EBA529D520B0B13700FDC145 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA529D420B0B13700FDC145 /* App.swift */; };
@@ -76,6 +73,7 @@
 		EBA52A2220B2172600FDC145 /* AnswearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA52A2120B2172600FDC145 /* AnswearModel.swift */; };
 		EBA52A2520B23B9300FDC145 /* ListingDummyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA52A2420B23B9300FDC145 /* ListingDummyProvider.swift */; };
 		EBA52A2720B23BBD00FDC145 /* HealthStatusDummyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA52A2620B23BBD00FDC145 /* HealthStatusDummyProvider.swift */; };
+		EBF062D620B3166000E37566 /* PagedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF062D520B3166000E37566 /* PagedArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,7 +90,6 @@
 				EB2A466120B08132003CC3BF /* SwinjectStoryboard.framework in Embed Frameworks */,
 				EB2A465920B08132003CC3BF /* CleanroomLogger.framework in Embed Frameworks */,
 				EB2A465F20B08132003CC3BF /* Swinject.framework in Embed Frameworks */,
-				EB2A465B20B08132003CC3BF /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,7 +104,6 @@
 		EB2A462D20B06A04003CC3BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB2A463020B06A04003CC3BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB2A463220B06A04003CC3BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB2A464A20B080F5003CC3BF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
 		EB2A464B20B080F5003CC3BF /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 		EB2A464C20B080F5003CC3BF /* SwinjectStoryboard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwinjectStoryboard.framework; sourceTree = "<group>"; };
 		EB2A464D20B080F5003CC3BF /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swinject.framework; sourceTree = "<group>"; };
@@ -121,8 +117,8 @@
 		EB2A467020B08C1B003CC3BF /* HealthStatusMV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStatusMV.swift; sourceTree = "<group>"; };
 		EB7438CD20B241CA00499464 /* AlamofireSwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlamofireSwiftyJSON.framework; sourceTree = "<group>"; };
 		EB7438D120B2482C00499464 /* QuestionDummyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDummyProvider.swift; sourceTree = "<group>"; };
-		EB7438D720B249F100499464 /* ChoiceMV+SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChoiceMV+SwiftyJSON.swift"; sourceTree = "<group>"; };
-		EB7438DB20B24C5300499464 /* QuestionMV+SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionMV+SwiftyJSON.swift"; sourceTree = "<group>"; };
+		EB7438D720B249F100499464 /* ChoiceMV+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChoiceMV+API.swift"; sourceTree = "<group>"; };
+		EB7438DB20B24C5300499464 /* QuestionMV+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuestionMV+API.swift"; sourceTree = "<group>"; };
 		EBA529CF20B090F600FDC145 /* HealthStatusProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStatusProvider.swift; sourceTree = "<group>"; };
 		EBA529D120B0AF7200FDC145 /* SwiftInj+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftInj+App.swift"; sourceTree = "<group>"; };
 		EBA529D420B0B13700FDC145 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -155,6 +151,7 @@
 		EBA52A2120B2172600FDC145 /* AnswearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswearModel.swift; sourceTree = "<group>"; };
 		EBA52A2420B23B9300FDC145 /* ListingDummyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDummyProvider.swift; sourceTree = "<group>"; };
 		EBA52A2620B23BBD00FDC145 /* HealthStatusDummyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStatusDummyProvider.swift; sourceTree = "<group>"; };
+		EBF062D520B3166000E37566 /* PagedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +161,6 @@
 			files = (
 				EB2A465120B080F5003CC3BF /* SwiftyJSON.framework in Frameworks */,
 				EB2A465320B080F5003CC3BF /* Swinject.framework in Frameworks */,
-				EB2A465A20B08132003CC3BF /* RxSwift.framework in Frameworks */,
-				EB2A465020B080F5003CC3BF /* RxSwift.framework in Frameworks */,
 				EB7438CE20B241CA00499464 /* AlamofireSwiftyJSON.framework in Frameworks */,
 				EB2A465C20B08132003CC3BF /* SwiftyJSON.framework in Frameworks */,
 				EB2A465E20B08132003CC3BF /* Swinject.framework in Frameworks */,
@@ -204,6 +199,7 @@
 		EB2A462520B06A03003CC3BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				EBF062D320B3161500E37566 /* External */,
 				EBA529CD20B08FF400FDC145 /* AppConfig */,
 				EB2A466620B0875C003CC3BF /* CoreLayer */,
 				EBA529E520B0B8EF00FDC145 /* Generated */,
@@ -232,7 +228,6 @@
 				EBA52A0620B18E3500FDC145 /* AlamofireImage.framework */,
 				EB2A464E20B080F5003CC3BF /* Alamofire.framework */,
 				EB2A464F20B080F5003CC3BF /* CleanroomLogger.framework */,
-				EB2A464A20B080F5003CC3BF /* RxSwift.framework */,
 				EB2A464B20B080F5003CC3BF /* SwiftyJSON.framework */,
 				EB2A464D20B080F5003CC3BF /* Swinject.framework */,
 				EB2A464C20B080F5003CC3BF /* SwinjectStoryboard.framework */,
@@ -255,7 +250,6 @@
 			children = (
 				EB7438D620B2498F00499464 /* Parsers */,
 				EB7438D520B2494000499464 /* Providers */,
-				EB2A466F20B088FE003CC3BF /* Result */,
 				EBA52A1B20B2030500FDC145 /* Stores */,
 				EBA52A2020B2045000FDC145 /* UI */,
 			);
@@ -316,8 +310,8 @@
 		EB7438D620B2498F00499464 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				EB7438D720B249F100499464 /* ChoiceMV+SwiftyJSON.swift */,
-				EB7438DB20B24C5300499464 /* QuestionMV+SwiftyJSON.swift */,
+				EB7438D720B249F100499464 /* ChoiceMV+API.swift */,
+				EB7438DB20B24C5300499464 /* QuestionMV+API.swift */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -436,6 +430,23 @@
 				EBA52A0420B1832500FDC145 /* ReusableViewProtocol.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		EBF062D320B3161500E37566 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				EBF062D420B3164900E37566 /* PagedArray */,
+				EB2A466F20B088FE003CC3BF /* Result */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		EBF062D420B3164900E37566 /* PagedArray */ = {
+			isa = PBXGroup;
+			children = (
+				EBF062D520B3166000E37566 /* PagedArray.swift */,
+			);
+			path = PagedArray;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,13 +568,14 @@
 				EBA52A1D20B2039600FDC145 /* QuestionsMemoryStore.swift in Sources */,
 				EBA529D520B0B13700FDC145 /* App.swift in Sources */,
 				EB7438D220B2482C00499464 /* QuestionDummyProvider.swift in Sources */,
-				EB7438DC20B24C5300499464 /* QuestionMV+SwiftyJSON.swift in Sources */,
+				EB7438DC20B24C5300499464 /* QuestionMV+API.swift in Sources */,
 				EBA529E020B0B57B00FDC145 /* IPhoneRouter.swift in Sources */,
 				EBA52A1A20B1FF0B00FDC145 /* QuestionProvider.swift in Sources */,
 				EB2A466520B08579003CC3BF /* HealthStatusRequest.swift in Sources */,
 				EBA529D220B0AF7200FDC145 /* SwiftInj+App.swift in Sources */,
 				EBA52A1F20B203BF00FDC145 /* QuestionsStoreProtocol.swift in Sources */,
 				EB2A466D20B088CE003CC3BF /* NoError.swift in Sources */,
+				EBF062D620B3166000E37566 /* PagedArray.swift in Sources */,
 				EBA52A1320B1A90000FDC145 /* ChoiceCell.swift in Sources */,
 				EBA52A2520B23B9300FDC145 /* ListingDummyProvider.swift in Sources */,
 				EBA529F820B0EB3A00FDC145 /* QuestionMV.swift in Sources */,
@@ -575,7 +587,7 @@
 				EBA529D020B090F600FDC145 /* HealthStatusProvider.swift in Sources */,
 				EBA529F420B0E90200FDC145 /* ListingMV.swift in Sources */,
 				EBA52A0520B1832500FDC145 /* ReusableViewProtocol.swift in Sources */,
-				EB7438D820B249F100499464 /* ChoiceMV+SwiftyJSON.swift in Sources */,
+				EB7438D820B249F100499464 /* ChoiceMV+API.swift in Sources */,
 				EBA52A2720B23BBD00FDC145 /* HealthStatusDummyProvider.swift in Sources */,
 				EBA529FD20B0EF0D00FDC145 /* ListingProvider.swift in Sources */,
 				EB2A466E20B088CE003CC3BF /* ResultProtocol.swift in Sources */,
@@ -749,6 +761,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Source/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -775,6 +788,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Source/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

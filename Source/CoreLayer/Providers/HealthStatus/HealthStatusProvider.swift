@@ -7,16 +7,14 @@ class HealthStatusProvider: HealthStatusRequest {
     func getHealthStatus(_ responder: HealthStatusResponse) {
         
         Alamofire.request(App.context.getURL(endpoint: "health")).responseJSON { response in
-            
-            if let json = response.result.value {
-                Log.info?.message("JSON: \(json)") // serialized json response
-            }
+            Log.debug?.message("Request:\n\(String(describing: response.request))")
             
             switch response.result {
             case .success:
                 let healthStatus = HealthStatusMV(isSuccess: true, message: nil)
                 responder.responseHealthStatus(result: Result(value: healthStatus))
             case .failure:
+                Log.warning?.message("Error Result \n\(response.result)")
                 let healthStatus = HealthStatusMV(isSuccess: true, message: L10n.connectionFailed)
                 responder.responseHealthStatus(result: Result(value: healthStatus))
             }

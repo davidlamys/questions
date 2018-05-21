@@ -11,6 +11,7 @@ class App {
     
     // In this example I use only a base url, but a session manager is way more flexible and scalable
     let baseUrl: String
+    let pageSize: Int = 10
     
     init() {
         

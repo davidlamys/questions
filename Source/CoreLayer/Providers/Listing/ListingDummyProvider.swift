@@ -3,7 +3,7 @@ import Foundation
 class ListingDummyProvider: ListingRequest {
     var store: QuestionsStoreProtocol!
     
-    func getListQuestions(_ responder: ListingResponse, page: Int, filter: String?) {
+    func getPageQuestions(_ responder: ListingResponse, page: Int, filter: String?) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             let results = [
@@ -20,16 +20,19 @@ class ListingDummyProvider: ListingRequest {
                            answerIndex: 0)
             ]
             
-            let listing = ListingMV(lastpage: page, pageSize: 10, filter: filter, results: results)
-            
-            self.store.listing = listing
+            let pageQuestions = PageQuestions(filter: filter,
+                                              page: page,
+                                              pageSize: App.context.pageSize,
+                                              results: results)
+            let listing = ListingMV(page: pageQuestions)
+            self.store.update(listing: listing)
             responder.responseListQuestions(result: Result(value: listing))
         }
     }
     
     func getUpdatedListQuestions(_ responder: ListingResponse) {
-        guard let listing = store.listing else {
-            getListQuestions(responder, page: 0, filter: nil)
+        guard let listing = store.getFullListing() else {
+            getPageQuestions(responder, page: 0, filter: nil)
             return
         }
         

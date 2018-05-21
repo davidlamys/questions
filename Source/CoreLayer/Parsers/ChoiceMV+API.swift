@@ -10,7 +10,7 @@ extension ChoiceMV {
         return choice
     }
     
-    func generateJson() -> Parameters {
+    func generateParameters() -> Parameters {
         let json: Parameters = ["choice": choice, "votes": votes]
         return json
     }

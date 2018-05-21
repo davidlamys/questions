@@ -10,6 +10,7 @@ class QuestionProvider: QuestionRequest {
     func getQuestion(_ responder: QuestionResponse, identifier: String) {
         let endpoint = "questions/\(identifier)"
         Alamofire.request(App.context.getURL(endpoint: endpoint)).responseSwiftyJSON { response in
+            Log.debug?.message("Request:\n\(String(describing: response.request))")
             
             if let json = response.result.value {
                 let question = QuestionMV.parse(json: json, store: self.store)
@@ -40,14 +41,15 @@ class QuestionProvider: QuestionRequest {
     
     private func notifyServer(question: QuestionMV, responder: QuestionResponse) {
         let endpoint = "questions/\(question.identifier)"
-        let parameters = question.generateJson()
+        let parameters = question.generateParameters()
         let urlConvertible: URLConvertible = URL(string: App.context.getURL(endpoint: endpoint))!
         
         Alamofire.request(urlConvertible,
                           method: .put,
                           parameters: parameters,
                           encoding: JSONEncoding.default,
-                          headers: [:]).responseSwiftyJSON { response in
+                          headers: [:]).responseSwiftyJSON { response in                            
+                            Log.debug?.message("Request:\n\(String(describing: response.request))")
                             
                             if response.result.value != nil {
                                 self.store.update(question: question)

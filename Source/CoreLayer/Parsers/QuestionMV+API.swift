@@ -20,11 +20,11 @@ extension QuestionMV {
         return question
     }
     
-    func generateJson() -> Parameters {
+    func generateParameters() -> Parameters {
         
         var choicesJSON: [Parameters] = []
         for choice in choices {
-            choicesJSON.append(choice.generateJson())
+            choicesJSON.append(choice.generateParameters())
         }
         let json: Parameters = ["id": identifier,
                                 "question": question,

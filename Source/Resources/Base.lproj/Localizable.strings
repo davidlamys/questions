@@ -4,3 +4,4 @@
 "retry" = "Retry";
 "no_answear" = "You didn't responde";
 "your_answear" = "Your answer: %@";
+"question_identifier" = "Question: #%@";

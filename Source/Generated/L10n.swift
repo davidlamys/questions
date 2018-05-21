@@ -13,6 +13,10 @@ internal enum L10n {
   internal static let connectionFailed = L10n.tr("Localizable", "connection_failed")
   /// You didn't responde
   internal static let noAnswear = L10n.tr("Localizable", "no_answear")
+  /// Question: #%@
+  internal static func questionIdentifier(_ p1: String) -> String {
+    return L10n.tr("Localizable", "question_identifier", p1)
+  }
   /// Retry
   internal static let retry = L10n.tr("Localizable", "retry")
   /// Strange errors happens ¯\_(ツ)_/¯

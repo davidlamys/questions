@@ -9,7 +9,12 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
     @IBOutlet private weak var tableView: UITableView!
     
     var listingRequest: ListingRequest!
-    private var questions: [QuestionMV] = []
+    private var listing: ListingMV = ListingMV.empty()
+    
+    // Warning:
+    //  We should use Operations or Observable to allow cancellation
+    //  In this example will not implement cancellation wich leads to some problematic edge cases
+    private var loadingOperations: Set<Int> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +23,21 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if questions.count == 0 {
-            listingRequest.getListQuestions(self, page: 0, filter: nil)
+        if listing.isEmpty {
+            loadDataForPage(0)
         } else {
             listingRequest.getUpdatedListQuestions(self)
         }
     }
     
-    func registerCells() {
+    func clearListing() {
+        // Here we should cancel all possible loading pages on going
+        loadingOperations.removeAll()
+        listing = ListingMV.empty()
+        tableView.reloadData()
+    }
+    
+    private func registerCells() {
         
         tableView.register(UINib(nibName: String(describing: QuestionCell.self), bundle: nil),
                            forCellReuseIdentifier: QuestionCell.reusableIdentifier)
@@ -33,13 +45,15 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        return listing.pageArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        loadMorePagesIfNeeded(forRow: (indexPath as NSIndexPath).row)
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: QuestionCell.reusableIdentifier, for: indexPath)
-        if let cell = cell as? ReusableViewProtocol {
-            cell.config(model: questions[indexPath.row])
+        if let cell = cell as? ReusableViewProtocol, let model = listing.pageArray[indexPath.row] {
+            cell.config(model: model)
         }
         return cell
     }
@@ -56,16 +70,61 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
     func responseListQuestions(result: Result<ListingMV, NoError>) {
         switch result {
         case .success(let listing):
-            questions = listing.results
+            self.listing = listing
+            tableView.reloadData()
+            if let updatedPage = listing.lastUpdatedPage {
+                loadingOperations.remove(updatedPage)
+            } else {
+                tableView.reloadData()
+            }
         case .failure:
-            questions = []
+            break
         }
-        tableView.reloadData()
+    }
+    
+    private func visibleIndexPathsForIndexes(_ indexes: CountableRange<Int>) -> [IndexPath]? {
+        return tableView.indexPathsForVisibleRows?.filter { indexes.contains(($0 as NSIndexPath).row) }
+    }
+    
+    private func needsLoadDataForPage(_ page: Int) -> Bool {
+        if listing.pageArray.elements[page] != nil || loadingOperations.contains(page) {
+            return false
+        }
+        
+        let previousPage = page - 1
+        if previousPage >= 0, let pageElements = listing.pageArray.elements[previousPage] {
+            return pageElements.count == App.context.pageSize
+        }
+        
+        return true
+    }
+    
+    private func loadDataForPage(_ page: Int) {
+        listingRequest.getPageQuestions(self, page: page, filter: self.listing.filter)
+        loadingOperations.insert(page)
+    }
+    
+    private func loadMorePagesIfNeeded(forRow row: Int) {
+        let currentPage = listing.pageArray.page(for: row)
+        if needsLoadDataForPage(currentPage) {
+            loadDataForPage(currentPage)
+        }
+        
+        let preloadIndex = row + App.context.pageSize / 2 // half page ahead
+        if preloadIndex > listing.pageArray.endIndex {
+            let preloadPage = currentPage + 1
+            if needsLoadDataForPage(preloadPage) {
+                loadDataForPage(preloadPage)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexpath = sender as? IndexPath, let destination = segue.destination as? DetailVC {
-            destination.question = questions[indexpath.row]
+        if let indexpath = sender as? IndexPath,
+            let destination = segue.destination as? DetailVC,
+            let question = listing.pageArray[indexpath.row] {
+            
+            destination.question = question
         }
     }
 }

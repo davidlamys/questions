@@ -6,6 +6,7 @@ class QuestionHeader: UITableViewHeaderFooterView, ReusableViewProtocol {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var questionLabel: UILabel!
     @IBOutlet private weak var choicesTitleLabel: UILabel!
+    @IBOutlet private weak var questionIdLabel: UILabel!
     
     static var reusableIdentifier: String {
         return String(describing: self)
@@ -21,6 +22,7 @@ class QuestionHeader: UITableViewHeaderFooterView, ReusableViewProtocol {
     func reset() {
         imageView.image = nil
         questionLabel.text = nil
+        questionIdLabel.text = nil
     }
     
     func config(model: Any) {
@@ -34,5 +36,6 @@ class QuestionHeader: UITableViewHeaderFooterView, ReusableViewProtocol {
             imageView.af_setImage(withURL: url)
         }
         questionLabel.text = String(question.question)
+        questionIdLabel.text = L10n.questionIdentifier(question.identifier)
     }
 }

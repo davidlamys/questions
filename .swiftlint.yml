@@ -20,4 +20,4 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
     - Pods
     - Build
     - .build
-    - Source/CoreLayer/Result
+    - Source/External

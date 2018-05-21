@@ -8,6 +8,7 @@ class QuestionCell: UITableViewCell, ReusableViewProtocol {
     @IBOutlet private weak var topAnswerLabel: UILabel!
     @IBOutlet private weak var counterImageView: UIImageView!
     @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var idLabel: UILabel!
     
     static var reusableIdentifier: String {
         return String(describing: self)
@@ -26,6 +27,7 @@ class QuestionCell: UITableViewCell, ReusableViewProtocol {
         questionLabel.text = nil
         topAnswerLabel.text = nil
         counterLabel.text = "0"
+        idLabel.text = nil
     }
     
     func config(model: Any) {
@@ -38,6 +40,7 @@ class QuestionCell: UITableViewCell, ReusableViewProtocol {
         if let url = URL(string: question.imageUrl) {
             questionImageView.af_setImage(withURL: url)
         }
+        idLabel.text = "#\(question.identifier)"
         questionLabel.text = question.question
         
         if let answerIndex = question.answerIndex {
