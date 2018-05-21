@@ -9,7 +9,7 @@ extension SwinjectStoryboard {
     @objc
     class func setup() {
         registerStore(container: defaultContainer)
-        registerActions(container: defaultContainer)
+        registerProviders(container: defaultContainer)
         registerViewControllers(container: defaultContainer)
     }
     
@@ -19,19 +19,22 @@ extension SwinjectStoryboard {
         }.inObjectScope(.container)
     }
     
-    static func registerActions(container: Container) {
+    static func registerProviders(container: Container) {
         container.register(HealthStatusRequest.self) { _ in
-            return HealthStatusDummyProvider()
+            //return HealthStatusDummyProvider()
+            return HealthStatusProvider()
         }
         
         container.register(ListingRequest.self) { register in
-            let provider = ListingDummyProvider()
+            //let provider = ListingDummyProvider()
+            let provider = ListingProvider()
             provider.store = register.resolve(QuestionsStoreProtocol.self)
             return provider
         }
         
         container.register(QuestionRequest.self) { register in
-            let provider = QuestionDummyProvider()
+            //let provider = QuestionDummyProvider()
+            let provider = QuestionProvider()
             provider.store = register.resolve(QuestionsStoreProtocol.self)
             return provider
         }

@@ -1,11 +1,11 @@
 import Foundation
 
-struct QuestionMV {
+struct QuestionMV: Codable {
     let identifier: String
     let question: String
     let imageUrl: String
     let thumbUrl: String
-    let published: Date
+    let published: String
     let choices: [ChoiceMV]
     let answerIndex: Int?
     

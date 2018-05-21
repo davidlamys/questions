@@ -11,7 +11,7 @@ class QuestionDummyProvider: QuestionRequest {
                 "https://dummyimage.com/600x400/000/fff.png&text=question+1+image+(600x400)",
                                       thumbUrl:
                 "https://dummyimage.com/120x120/000/fff.png&text=question+1+image+(120x120)",
-                                      published: Date(),
+                                      published: "",
                                       choices: [
                                         ChoiceMV(choice: "Swift", votes: 2048),
                                         ChoiceMV(choice: "Python", votes: 1024),
