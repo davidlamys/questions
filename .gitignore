@@ -3,7 +3,7 @@
 ## Build generated
 build/
 DerivedData/
-GeneratedCode/
+Source/Generated
 
 ## Various settings
 *.pbxuser

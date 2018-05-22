@@ -20,7 +20,7 @@ class ListingDummyProvider: ListingRequest {
                            answerIndex: 0)
             ]
             
-            let pageQuestions = PageQuestions(filter: filter,
+            let pageQuestions = PageQuestionsModel(filter: filter,
                                               page: page,
                                               pageSize: App.context.pageSize,
                                               results: results)

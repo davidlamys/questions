@@ -9,7 +9,7 @@ struct ListingMV {
         return ListingMV(pageArray: PagedArray<QuestionMV>(count: 0, pageSize: 0))
     }
     
-    init(page: PageQuestions) {
+    init(page: PageQuestionsModel) {
         self.filter = page.filter
         var pageArray = PagedArray<QuestionMV>(count: 0, pageSize: page.pageSize)
         pageArray.updatesCountWhenSettingPages = true
@@ -24,7 +24,7 @@ struct ListingMV {
         self.lastUpdatedPage = lastUpdatedPage
     }
     
-    func merge(page: PageQuestions) -> ListingMV {
+    func merge(page: PageQuestionsModel) -> ListingMV {
         var newPageArray = pageArray
         newPageArray.set(page.results, forPage: page.page)
         return ListingMV(pageArray: newPageArray, filter: filter, lastUpdatedPage: page.page)
@@ -39,7 +39,7 @@ struct ListingMV {
     }
 }
 
-struct PageQuestions {
+struct PageQuestionsModel {
     let filter: String?
     let page: Int
     let pageSize: Int

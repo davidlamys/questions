@@ -8,6 +8,8 @@ protocol BaseRouterProtocol {
     
     func openHome(animated: Bool)
     
+    func changeReachability(isReachable: Bool)
+    
     func checkLink()
     
     func handleLink(url: URL) -> Bool

@@ -1,7 +1,9 @@
 "checking_connection" = "Checking connection";
-"unexepected_error" = "Strange errors happens ¯\\_(ツ)_/¯";
+"unexepected_error" = "Strange errors happens ¯\_(ツ)_/¯";
 "connection_failed" = "Connection failed";
 "retry" = "Retry";
 "no_answear" = "You didn't responde";
 "your_answear" = "Your answer: %@";
 "question_identifier" = "Question: #%@";
+"no_connection_title" = "Ups, you lost connection";
+"no_connection_message" = "To use the app, please ensure that you are connected via wifi or cellular";

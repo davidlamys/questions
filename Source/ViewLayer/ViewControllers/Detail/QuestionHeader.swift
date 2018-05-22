@@ -12,7 +12,7 @@ class QuestionHeader: UITableViewHeaderFooterView, ReusableViewProtocol {
         return String(describing: self)
     }
     static var preferedSize: CGSize {
-        return CGSize(width: 0, height: 300)
+        return CGSize(width: 0, height: 340)
     }
     
     override func awakeFromNib() {

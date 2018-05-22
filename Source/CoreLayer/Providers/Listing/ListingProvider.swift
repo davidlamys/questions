@@ -22,7 +22,7 @@ class ListingProvider: ListingRequest {
                 }
             }
             
-            let pageQuestions = PageQuestions(filter: filter, page: page, pageSize: pageSize, results: pageResults)
+            let pageQuestions = PageQuestionsModel(filter: filter, page: page, pageSize: pageSize, results: pageResults)
             let listing = self.getFinalListing(with: pageQuestions)
             self.store.update(listing: listing)
             responder.responseListQuestions(result: Result(value: listing))
@@ -30,7 +30,7 @@ class ListingProvider: ListingRequest {
         Log.debug?.message("Request:\n\(String(describing: request))")
     }
     
-    private func getFinalListing(with pageQuestion: PageQuestions) -> ListingMV {
+    private func getFinalListing(with pageQuestion: PageQuestionsModel) -> ListingMV {
         if pageQuestion.page == 0 {
             return ListingMV(page: pageQuestion)
         }

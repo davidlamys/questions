@@ -5,6 +5,10 @@ class IPhoneRouter: BaseRouterProtocol {
     let window: UIWindow
     private var activeLink: DeepLinkType?
     
+    private var navigationController: UINavigationController? {
+        return window.rootViewController as? UINavigationController
+    }
+    
     init(window: UIWindow) {
         self.window = window
     }
@@ -18,7 +22,23 @@ class IPhoneRouter: BaseRouterProtocol {
     }
     
     func openHome(animated: Bool) {
-        (window.rootViewController as? UINavigationController)?.popToRootViewController(animated: animated)
+        navigationController?.popToRootViewController(animated: animated)
+    }
+    
+    func changeReachability(isReachable: Bool) {
+        // Warning:
+        //  This is a quick solution to show lack of internet reachability
+        //  but if there is other presentation controllers on the viewcontroller
+        //  that could be an issue        
+        let viewController = navigationController?.visibleViewController
+        if isReachable {
+            viewController?.dismiss(animated: true, completion: nil)
+        } else {
+            let alertViewController = UIAlertController(title: L10n.noConnectionTitle,
+                                          message: L10n.noConnectionMessage,
+                                          preferredStyle: .alert)
+            viewController?.present(alertViewController, animated: true, completion: nil)
+        }
     }
     
     func checkLink() {
@@ -26,7 +46,7 @@ class IPhoneRouter: BaseRouterProtocol {
             return
         }
         
-        if let navigationController = window.rootViewController as? UINavigationController {
+        if let navigationController = navigationController {
             proceedToLink(activeLink, navigationController: navigationController)
             self.activeLink = nil
         } else {

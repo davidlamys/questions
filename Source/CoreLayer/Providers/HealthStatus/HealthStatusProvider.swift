@@ -15,7 +15,7 @@ class HealthStatusProvider: HealthStatusRequest {
                 responder.responseHealthStatus(result: Result(value: healthStatus))
             case .failure:
                 Log.warning?.message("Error Result \n\(response.result)")
-                let healthStatus = HealthStatusMV(isSuccess: true, message: L10n.connectionFailed)
+                let healthStatus = HealthStatusMV(isSuccess: false, message: L10n.connectionFailed)
                 responder.responseHealthStatus(result: Result(value: healthStatus))
             }
         }

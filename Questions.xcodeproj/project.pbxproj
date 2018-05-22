@@ -203,15 +203,14 @@
 		EB2A462520B06A03003CC3BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				EBF062D320B3161500E37566 /* External */,
 				EBA529CD20B08FF400FDC145 /* AppConfig */,
 				EB2A466620B0875C003CC3BF /* CoreLayer */,
+				EBF062D320B3161500E37566 /* External */,
 				EBA529E520B0B8EF00FDC145 /* Generated */,
 				EB2A466320B08526003CC3BF /* PresenterLayer */,
 				EBA529E620B0D47300FDC145 /* Resources */,
-				EBA529D320B0B10300FDC145 /* ViewControllers */,
+				EBA52A2020B2045000FDC145 /* ViewLayer */,
 				EB2A462620B06A03003CC3BF /* AppDelegate.swift */,
-				EBA529DD20B0B54A00FDC145 /* BaseRouterProtocol.swift */,
 				EB2A463220B06A04003CC3BF /* Info.plist */,
 			);
 			path = Source;
@@ -255,7 +254,6 @@
 				EB7438D620B2498F00499464 /* Parsers */,
 				EB7438D520B2494000499464 /* Providers */,
 				EBA52A1B20B2030500FDC145 /* Stores */,
-				EBA52A2020B2045000FDC145 /* UI */,
 			);
 			path = CoreLayer;
 			sourceTree = "<group>";
@@ -274,8 +272,8 @@
 		EB2A467220B08EF3003CC3BF /* HealthStatus */ = {
 			isa = PBXGroup;
 			children = (
-				EBA529CF20B090F600FDC145 /* HealthStatusProvider.swift */,
 				EBA52A2620B23BBD00FDC145 /* HealthStatusDummyProvider.swift */,
+				EBA529CF20B090F600FDC145 /* HealthStatusProvider.swift */,
 			);
 			path = HealthStatus;
 			sourceTree = "<group>";
@@ -294,9 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				EBA529F920B0EDB500FDC145 /* ChoiceMV.swift */,
+				EB2A467020B08C1B003CC3BF /* HealthStatusMV.swift */,
 				EBA529F320B0E90200FDC145 /* ListingMV.swift */,
 				EBA529F720B0EB3A00FDC145 /* QuestionMV.swift */,
-				EB2A467020B08C1B003CC3BF /* HealthStatusMV.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -345,9 +343,10 @@
 		EBA529DC20B0B50100FDC145 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				EBA529DD20B0B54A00FDC145 /* BaseRouterProtocol.swift */,
+				EBD4ADAE20B38EAA00C92FBD /* DeepLinkType.swift */,
 				EBA529DF20B0B57B00FDC145 /* IPhoneRouter.swift */,
 				EBD4ADAC20B38E2E00C92FBD /* LinkParser.swift */,
-				EBD4ADAE20B38EAA00C92FBD /* DeepLinkType.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -375,8 +374,8 @@
 		EBA529F220B0E8E500FDC145 /* Listing */ = {
 			isa = PBXGroup;
 			children = (
-				EBA529FC20B0EF0D00FDC145 /* ListingProvider.swift */,
 				EBA52A2420B23B9300FDC145 /* ListingDummyProvider.swift */,
+				EBA529FC20B0EF0D00FDC145 /* ListingProvider.swift */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
@@ -414,8 +413,8 @@
 		EBA52A0D20B1990600FDC145 /* Question */ = {
 			isa = PBXGroup;
 			children = (
-				EBA52A1920B1FF0B00FDC145 /* QuestionProvider.swift */,
 				EB7438D120B2482C00499464 /* QuestionDummyProvider.swift */,
+				EBA52A1920B1FF0B00FDC145 /* QuestionProvider.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -430,12 +429,13 @@
 			path = Stores;
 			sourceTree = "<group>";
 		};
-		EBA52A2020B2045000FDC145 /* UI */ = {
+		EBA52A2020B2045000FDC145 /* ViewLayer */ = {
 			isa = PBXGroup;
 			children = (
+				EBA529D320B0B10300FDC145 /* ViewControllers */,
 				EBA52A0420B1832500FDC145 /* ReusableViewProtocol.swift */,
 			);
-			path = UI;
+			path = ViewLayer;
 			sourceTree = "<group>";
 		};
 		EBF062D320B3161500E37566 /* External */ = {
