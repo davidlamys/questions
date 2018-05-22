@@ -5,7 +5,7 @@ import UIKit
 //  with a view and be config in a clean way. But this example it just has 1 cell type so I keep it simple.
 //  Also, sometimes, I separate the content view so it could be used as a collection cell or table cell
 //
-class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITableViewDelegate {
+class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITableViewDelegate {    
     @IBOutlet private weak var tableView: UITableView!
     
     var listingRequest: ListingRequest!
@@ -15,6 +15,8 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
     //  We should use Operations or Observable to allow cancellation
     //  In this example will not implement cancellation wich leads to some problematic edge cases
     private var loadingOperations: Set<Int> = []
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,11 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
         } else {
             listingRequest.getUpdatedListQuestions(self)
         }
+    }
+    
+    @IBAction func onRefresh(_ sender: Any) {
+        clearListing()
+        loadDataForPage(0)
     }
     
     func clearListing() {
@@ -60,7 +67,7 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        perform(segue: StoryboardSegue.Main.showDetail, sender: indexPath)
+        perform(segue: StoryboardSegue.Main.showDetail, sender: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -120,11 +127,17 @@ class ListingVC: UIViewController, ListingResponse, UITableViewDataSource, UITab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexpath = sender as? IndexPath,
-            let destination = segue.destination as? DetailVC,
-            let question = listing.pageArray[indexpath.row] {
+        if let destination = segue.destination as? DetailVC {
             
-            destination.question = question
+            if let index = sender as? Int, let question = listing.pageArray[index] {
+                destination.question = question
+                return
+            }
+            
+            if let questionIdentifier = sender as? String {
+                destination.questionIdentifier = questionIdentifier
+                return
+            }
         }
     }
 }

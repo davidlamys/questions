@@ -13,4 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         App.context.window.makeKeyAndVisible()
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        App.context.router.checkLink()
+    }
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+        
+        return App.context.router.handleLink(url: url)
+    }
 }

@@ -7,8 +7,7 @@ class DetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Qu
     
     var questionRequest: QuestionRequest!
     var question: QuestionMV?
-    
-    var questionIdentifier: String!
+    var questionIdentifier: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +21,7 @@ class DetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Qu
     }
     
     func requestQuestionIfNeeded() {
-        if question == nil {
+        if question == nil, let questionIdentifier = questionIdentifier {
             questionRequest.getQuestion(self, identifier: questionIdentifier)
         }
     }

@@ -6,5 +6,9 @@ protocol BaseRouterProtocol {
     
     var rootVC: UIViewController { get }
     
-    func openHome(animated: Bool, completion: @escaping () -> Void)        
+    func openHome(animated: Bool)
+    
+    func checkLink()
+    
+    func handleLink(url: URL) -> Bool
 }

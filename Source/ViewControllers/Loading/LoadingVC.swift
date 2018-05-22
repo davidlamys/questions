@@ -53,6 +53,10 @@ class LoadingVC: UIViewController, HealthStatusResponse {
                           animations: {
                             window.rootViewController = newRootVC
                             
-        }, completion: nil)
+        }, completion: { completion in
+            if completion {
+                App.context.router.checkLink()
+            }
+        })
     }
 }

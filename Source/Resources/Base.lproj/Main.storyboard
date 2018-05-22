@@ -71,6 +71,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.14135187499999999" green="0.63859145110000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="h6h-D1-ile" kind="relationship" relationship="rootViewController" id="wOl-pN-RWV"/>
@@ -80,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="-314" y="866"/>
         </scene>
-        <!--ListingVC-->
+        <!--Questions & Answers-->
         <scene sceneID="xQh-fb-pxz">
             <objects>
                 <viewController id="h6h-D1-ile" customClass="ListingVC" customModule="Questions" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +113,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r5H-hC-hvr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zcZ-6r-soZ"/>
+                    <navigationItem key="navigationItem" title="Questions &amp; Answers" id="zcZ-6r-soZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="E7U-AP-txS">
+                            <connections>
+                                <action selector="onRefresh:" destination="h6h-D1-ile" id="tVi-Dd-a82"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="aw9-Wg-mu1" id="owO-QT-skd"/>
                         <segue destination="Jd3-ib-8Ae" kind="show" identifier="showDetail" id="CDW-H8-Jgc"/>
