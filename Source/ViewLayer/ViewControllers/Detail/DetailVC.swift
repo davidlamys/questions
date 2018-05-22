@@ -1,5 +1,6 @@
 import UIKit
 import AlamofireImage
+import ToastSwiftFramework
 
 class DetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate, QuestionResponse {
     @IBOutlet private weak var imageView: UIImageView!
@@ -82,12 +83,12 @@ class DetailVC: UIViewController, UITableViewDataSource, UITableViewDelegate, Qu
         }
     }
     
-    func responseQuestion(result: Result<QuestionMV, NoError>) {
+    func responseQuestion(result: Result<QuestionMV, AnyError>) {
         switch result {
         case .success(let questionResponse):
             question = questionResponse
         case .failure:
-            break
+            self.view.makeToast(L10n.unexepectedError)
         }
                 
         reloadUI()

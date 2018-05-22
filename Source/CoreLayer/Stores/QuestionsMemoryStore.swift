@@ -12,7 +12,9 @@ class QuestionsMemoryStore: QuestionsStoreProtocol {
     func update(question: QuestionMV) {
         var answer: AnswerModel?
         if let answerIndex = question.answerIndex {
-            answer = AnswerModel(questionIdentifier: question.identifier, answearIndex: answerIndex)
+            answer = AnswerModel(questionIdentifier: question.identifier,
+                                 choice: question.choices[answerIndex].choice,
+                                 index: answerIndex)
         }
         answers[question.identifier] = answer
         
@@ -47,5 +49,9 @@ class QuestionsMemoryStore: QuestionsStoreProtocol {
     
     func getFullListing() -> ListingMV? {
         return self.activeListing
+    }
+    
+    func deleteAnswer(questionIdentifier: String) {
+        answers[questionIdentifier] = nil
     }
 }

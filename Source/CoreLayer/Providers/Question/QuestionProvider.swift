@@ -9,60 +9,92 @@ class QuestionProvider: QuestionRequest {
     
     func getQuestion(_ responder: QuestionResponse, identifier: String) {
         let endpoint = "questions/\(identifier)"
-        Alamofire.request(App.context.getURL(endpoint: endpoint)).responseSwiftyJSON { response in
-            Log.debug?.message("Request:\n\(String(describing: response.request))")
-            
-            if let json = response.result.value {
-                let question = QuestionMV.parse(json: json, store: self.store)
+        let request = Alamofire.request(App.context.getURL(endpoint: endpoint)).responseSwiftyJSON { response in
+            switch response.result {
+            case .success(let json):
+                let question = QuestionMV.parseAndVerifyAnswer(json: json, store: self.store)
                 responder.responseQuestion(result: Result(value: question))
+            case .failure(let error):
+                Log.error?.message("Load page fail. Error: \(error)")
+                responder.responseQuestion(result: Result<QuestionMV, AnyError>(error: AnyError(error)))
             }
         }
+        Log.debug?.message("Request:\n\(String(describing: request))")
     }
     
     func answerQuestion(_ responder: QuestionResponse, question: QuestionMV, answer: Int) {
-        var newChoices = question.choices
-        if let previousIndex = question.answerIndex {
-            newChoices[previousIndex] = self.downvote(question.choices[previousIndex])
-        }
-        newChoices[answer] = self.upvote(question.choices[answer])
-        let newQuestion = question.newQuestion(withAnswer: answer, newChoices: newChoices)
-        
-        notifyServer(question: newQuestion, responder: responder)
+        let newQuestion = question.answerQuestion(answer: answer)
+        let answerModel = AnswerModel(questionIdentifier: question.identifier,
+                                      choice: question.choices[answer].choice,
+                                      index: answer)
+        notifyServer(question: newQuestion, answerModel: answerModel, responder: responder)
     }
     
     func removeAnswer(_ responder: QuestionResponse, question: QuestionMV) {
-        var newChoices = question.choices
-        if let previousIndex = question.answerIndex {
-            newChoices[previousIndex] = self.downvote(question.choices[previousIndex])
-        }
-        let newQuestion = question.newQuestion(withAnswer: nil, newChoices: newChoices)
-        notifyServer(question: newQuestion, responder: responder)
+        let newQuestion = question.answerQuestion(answer: nil)
+        notifyServer(question: newQuestion, answerModel: nil, responder: responder)
     }
     
-    private func notifyServer(question: QuestionMV, responder: QuestionResponse) {
+    private func notifyServer(question: QuestionMV,
+                              answerModel: AnswerModel?,
+                              responder: QuestionResponse) {
+        
         let endpoint = "questions/\(question.identifier)"
         let parameters = question.generateParameters()
         let urlConvertible: URLConvertible = URL(string: App.context.getURL(endpoint: endpoint))!
         
-        Alamofire.request(urlConvertible,
-                          method: .put,
-                          parameters: parameters,
-                          encoding: JSONEncoding.default,
-                          headers: [:]).responseSwiftyJSON { response in                            
-                            Log.debug?.message("Request:\n\(String(describing: response.request))")
-                            
-                            if response.result.value != nil {
-                                self.store.update(question: question)
-                                responder.responseQuestion(result: Result(value: question))
-                            }
+        let request = Alamofire.request(urlConvertible,
+                                        method: .put,
+                                        parameters: parameters,
+                                        encoding: JSONEncoding.default,
+                                        headers: [:]).responseSwiftyJSON { response in
+                                            
+                                            if App.context.shouldUpdateWithServerData {
+                                                self.treatServerResponse(response: response,
+                                                                         answerModel: answerModel,
+                                                                         responder: responder)
+                                            } else {
+                                                self.treatIgnoringServerResponse(question: question,
+                                                                                 response: response,
+                                                                                 responder: responder)
+                                            }
+        }
+        Log.debug?.message("Request:\n\(String(describing: request))")
+    }
+    
+    private func treatServerResponse(response: Alamofire.DataResponse<SwiftyJSON.JSON>,
+                                     answerModel: AnswerModel?,
+                                     responder: QuestionResponse) {
+        switch response.result {
+        case .success(let json):
+            
+            // Note:
+            // Here we are assuming that the change is only votes
+            // A more robust parsing or handling should be done to prevent updates from structure of the question
+            let serverQuestion = QuestionMV.parse(json: json, answerModel: answerModel)
+            self.store.update(question: serverQuestion)
+            
+            responder.responseQuestion(result: Result(value: serverQuestion))
+        case .failure(let error):
+            Log.error?.message("Update question fail. Error: \(error)")
+            responder.responseQuestion(result: Result<QuestionMV, AnyError>(error: AnyError(error)))
         }
     }
     
-    private func upvote(_ choice: ChoiceMV) -> ChoiceMV {
-        return ChoiceMV(choice: choice.choice, votes: choice.votes + 1)
-    }
-    
-    private func downvote(_ choice: ChoiceMV) -> ChoiceMV {
-        return ChoiceMV(choice: choice.choice, votes: Swift.max(0, choice.votes - 1))
+    private func treatIgnoringServerResponse(question: QuestionMV,
+                                             response: Alamofire.DataResponse<SwiftyJSON.JSON>,
+                                             responder: QuestionResponse) {
+        switch response.result {
+        case .success:
+            
+            // Warning:
+            // For this to work with existent apiary, we will use this instead.
+            // But the correct implementation is above
+            self.store.update(question: question)
+            responder.responseQuestion(result: Result(value: question))
+        case .failure(let error):
+            Log.error?.message("Update question fail. Error: \(error)")
+            responder.responseQuestion(result: Result<QuestionMV, AnyError>(error: AnyError(error)))
+        }
     }
 }

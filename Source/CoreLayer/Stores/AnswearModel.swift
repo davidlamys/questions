@@ -2,5 +2,6 @@ import Foundation
 
 struct AnswerModel {
     let questionIdentifier: String
-    let answearIndex: Int?
+    let choice: String
+    let index: Int
 }

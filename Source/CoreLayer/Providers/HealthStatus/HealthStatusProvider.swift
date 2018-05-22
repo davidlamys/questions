@@ -6,9 +6,7 @@ class HealthStatusProvider: HealthStatusRequest {
  
     func getHealthStatus(_ responder: HealthStatusResponse) {
         
-        Alamofire.request(App.context.getURL(endpoint: "health")).responseJSON { response in
-            Log.debug?.message("Request:\n\(String(describing: response.request))")
-            
+        let request = Alamofire.request(App.context.getURL(endpoint: "health")).responseJSON { response in
             switch response.result {
             case .success:
                 let healthStatus = HealthStatusMV(isSuccess: true, message: nil)
@@ -19,5 +17,6 @@ class HealthStatusProvider: HealthStatusRequest {
                 responder.responseHealthStatus(result: Result(value: healthStatus))
             }
         }
+        Log.debug?.message("Request:\n\(String(describing: request))")
     }
 }

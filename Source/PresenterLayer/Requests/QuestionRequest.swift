@@ -11,5 +11,5 @@ protocol QuestionRequest {
 
 protocol QuestionResponse {
     
-    func responseQuestion(result: Result<QuestionMV, NoError>)
+    func responseQuestion(result: Result<QuestionMV, AnyError>)
 }

@@ -15,19 +15,29 @@ class ListingProvider: ListingRequest {
         }
         
         let request = Alamofire.request(App.context.getURL(endpoint: endpoint)).responseSwiftyJSON { response in
-            var pageResults: [QuestionMV] = []
-            if let json = response.result.value {
-                for (_, subJson): (String, JSON) in json {
-                    pageResults.append(QuestionMV.parse(json: subJson, store: self.store))
-                }
-            }
-            
-            let pageQuestions = PageQuestionsModel(filter: filter, page: page, pageSize: pageSize, results: pageResults)
-            let listing = self.getFinalListing(with: pageQuestions)
-            self.store.update(listing: listing)
-            responder.responseListQuestions(result: Result(value: listing))
+            switch response.result {
+            case .success(let json):
+                self.handleSuccess(responder, page: page, filter: filter, json: json)
+            case .failure(let error):
+                Log.error?.message("Load page fail. Error: \(error)")
+            }        
         }
         Log.debug?.message("Request:\n\(String(describing: request))")
+    }
+    
+    private func handleSuccess(_ responder: ListingResponse, page: Int, filter: String?, json: JSON) {
+        var pageResults: [QuestionMV] = []
+        for (_, subJson): (String, JSON) in json {
+            pageResults.append(QuestionMV.parseAndVerifyAnswer(json: subJson, store: self.store))
+        }
+    
+        let pageQuestions = PageQuestionsModel(filter: filter,
+                                               page: page,
+                                               pageSize: App.context.pageSize,
+                                               results: pageResults)
+        let listing = self.getFinalListing(with: pageQuestions)
+        self.store.update(listing: listing)
+        responder.responseListQuestions(result: Result(value: listing))
     }
     
     private func getFinalListing(with pageQuestion: PageQuestionsModel) -> ListingMV {

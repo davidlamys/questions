@@ -25,7 +25,7 @@ class IPhoneRouter: BaseRouterProtocol {
         navigationController?.popToRootViewController(animated: animated)
     }
     
-    func changeReachability(isReachable: Bool) {
+    func onChangeReachability(isReachable: Bool) {
         // Warning:
         //  This is a quick solution to show lack of internet reachability
         //  but if there is other presentation controllers on the viewcontroller

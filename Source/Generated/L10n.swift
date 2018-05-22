@@ -23,7 +23,7 @@ internal enum L10n {
   }
   /// Retry
   internal static let retry = L10n.tr("Localizable", "retry")
-  /// Strange errors happens ¯_(ツ)_/¯
+  /// Strange errors happens ¯\_(ツ)_/¯
   internal static let unexepectedError = L10n.tr("Localizable", "unexepected_error")
   /// Your answer: %@
   internal static func yourAnswear(_ p1: String) -> String {

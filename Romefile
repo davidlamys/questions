@@ -1,5 +1,6 @@
 [Cache]
-  local = ~/Library/Caches/Rome/
+    local = ~/Library/Caches/Rome/
 
 [RepositoryMap]
-  RxSwift = RxSwift, RxTest, RxBlocking, RxCocoa
+    RxSwift = RxSwift, RxTest, RxBlocking, RxCocoa
+    Toast-Swift = ToastSwiftFramework

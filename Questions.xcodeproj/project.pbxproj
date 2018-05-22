@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0A159220B4B6B700268FF6 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A159120B4B6B700268FF6 /* ToastSwiftFramework.framework */; };
+		EB0A159320B4B6FF00268FF6 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A159120B4B6B700268FF6 /* ToastSwiftFramework.framework */; };
+		EB0A159420B4B6FF00268FF6 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB0A159120B4B6B700268FF6 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB2A462720B06A03003CC3BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A462620B06A03003CC3BF /* AppDelegate.swift */; };
 		EB2A462920B06A03003CC3BF /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A462820B06A03003CC3BF /* LoadingVC.swift */; };
 		EB2A462C20B06A03003CC3BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2A462A20B06A03003CC3BF /* Main.storyboard */; };
@@ -92,6 +95,7 @@
 				EB2A466120B08132003CC3BF /* SwinjectStoryboard.framework in Embed Frameworks */,
 				EB2A465920B08132003CC3BF /* CleanroomLogger.framework in Embed Frameworks */,
 				EB2A465F20B08132003CC3BF /* Swinject.framework in Embed Frameworks */,
+				EB0A159420B4B6FF00268FF6 /* ToastSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EB0A159120B4B6B700268FF6 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		EB2A462320B06A03003CC3BF /* Questions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Questions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2A462620B06A03003CC3BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2A462820B06A03003CC3BF /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
@@ -173,10 +178,12 @@
 				EB7438CF20B245EE00499464 /* AlamofireSwiftyJSON.framework in Frameworks */,
 				EB2A466020B08132003CC3BF /* SwinjectStoryboard.framework in Frameworks */,
 				EBA52A0820B1942A00FDC145 /* AlamofireImage.framework in Frameworks */,
+				EB0A159220B4B6B700268FF6 /* ToastSwiftFramework.framework in Frameworks */,
 				EB2A465820B08132003CC3BF /* CleanroomLogger.framework in Frameworks */,
 				EBA52A0720B18E3500FDC145 /* AlamofireImage.framework in Frameworks */,
 				EB2A465420B080F5003CC3BF /* Alamofire.framework in Frameworks */,
 				EB2A465220B080F5003CC3BF /* SwinjectStoryboard.framework in Frameworks */,
+				EB0A159320B4B6FF00268FF6 /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +234,7 @@
 		EB2A464920B080C5003CC3BF /* Carthage */ = {
 			isa = PBXGroup;
 			children = (
+				EB0A159120B4B6B700268FF6 /* ToastSwiftFramework.framework */,
 				EB7438CD20B241CA00499464 /* AlamofireSwiftyJSON.framework */,
 				EBA52A0620B18E3500FDC145 /* AlamofireImage.framework */,
 				EB2A464E20B080F5003CC3BF /* Alamofire.framework */,

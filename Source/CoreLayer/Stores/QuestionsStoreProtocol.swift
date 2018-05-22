@@ -7,4 +7,6 @@ protocol QuestionsStoreProtocol {
     
     func getAnswear(questionIdentifier: String) -> AnswerModel?
     func getFullListing() -> ListingMV?
+    
+    func deleteAnswer(questionIdentifier: String)
 }

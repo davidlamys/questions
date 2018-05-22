@@ -13,6 +13,7 @@ class App {
     let baseUrl: String
     let pageSize: Int = 10
     var manager: NetworkReachabilityManager?
+    let shouldUpdateWithServerData: Bool = true
     
     init() {
         
@@ -50,12 +51,12 @@ class App {
         }
         
         newManager.listener = { status in
-            Log.warning?.message("Network Status Changed: \(status)")
+            Log.info?.message("Network Status Changed: \(status)")
             switch status {
             case .notReachable:
-                self.router.changeReachability(isReachable: false)
+                self.router.onChangeReachability(isReachable: false)
             case .reachable, .unknown:
-                self.router.changeReachability(isReachable: true)
+                self.router.onChangeReachability(isReachable: true)
             }
         }
             
